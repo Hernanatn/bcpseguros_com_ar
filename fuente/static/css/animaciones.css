@@ -1,0 +1,214 @@
+/*@import url('./base.css');*/
+:root{
+    --animacion-corta: 150ms;
+    --animacion-mediana: 350ms;
+    --animacion-larga: 700ms;
+    --animacion-x-larga: 1500ms;
+}
+@property --ratio-creciente{
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+@property --ratio-decreciente{
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 1;
+}
+
+@property --x{
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+@property --y{
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+@property --z{
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+}
+
+@keyframes invertir {
+    to{
+        background: var(--color-crema);
+        color: var(--color-negro);
+    }
+}
+@keyframes entrar-derecha {
+    from{
+        left: 110%;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        left: 0%;
+    }
+}
+@keyframes entrar-abajo {
+    from{
+        top: 110%;
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        top: 0%;
+    }
+}
+
+@keyframes resaltar {
+    0% {
+
+    }
+    50% {
+        border-color: var(--color-rubi);
+        color: var(--color-crema);
+        --x : .4;
+        --y : .0;
+        background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(102, 0, 0, var(--x)),
+            rgba(102, 0, 0, var(--y)) 40%);
+    
+    }
+    80% {
+        border-color: var(--color-rubi);
+        color: var(--color-crema);
+        
+        --x : .8;
+        --y : .4;
+    
+        background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(102, 0, 0, var(--x)),
+            rgba(102, 0, 0, var(--y)) 40%);
+    }
+    100% {
+        border-color: var(--color-rubi);
+        color: var(--color-crema);
+        
+        --x : .8;
+        --y : .8;
+    
+        background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(102, 0, 0, var(--x)),
+            rgba(102, 0, 0, var(--y)) 40%);
+    }
+
+}
+
+@keyframes ratio-crece-01 {
+    to {
+        --ratio-creciente: .1;
+    }
+}
+@keyframes ratio-crece-02 {
+    to {
+        --ratio-creciente: .2;
+    }
+}
+@keyframes ratio-crece-03 {
+    to {
+        --ratio-creciente: .3;
+    }
+}
+@keyframes ratio-crece-04 {
+    to {
+        --ratio-creciente: .4;
+    }
+}
+@keyframes ratio-crece-05 {
+    to {
+        --ratio-creciente: .5;
+    }
+}
+@keyframes ratio-crece-06 {
+    to {
+        --ratio-creciente: .6;
+    }
+}
+@keyframes ratio-crece-07 {
+    to {
+        --ratio-creciente: .7;
+    }
+}
+@keyframes ratio-crece-08 {
+    to {
+        --ratio-creciente: .8;
+    }
+}
+@keyframes ratio-crece-09 {
+    to {
+        --ratio-creciente: .9;
+    }
+}
+@keyframes ratio-crece-10 {
+    to {
+        --ratio-creciente: 1;
+    }
+}
+@keyframes ratio-decrece-01 {
+    to {
+        --ratio-decreciente: .1;
+    }
+}
+@keyframes ratio-decrece-02 {
+    to {
+        --ratio-decreciente: .2;
+    }
+}
+@keyframes ratio-decrece-03 {
+    to {
+        --ratio-decreciente: .3;
+    }
+}
+@keyframes ratio-decrece-04 {
+    to {
+        --ratio-decreciente: .4;
+    }
+}
+@keyframes ratio-decrece-05 {
+    to {
+        --ratio-decreciente: .5;
+    }
+}
+@keyframes ratio-decrece-06 {
+    to {
+        --ratio-decreciente: .6;
+    }
+}
+@keyframes ratio-decrece-07 {
+    to {
+        --ratio-decreciente: .7;
+    }
+}
+@keyframes ratio-decrece-08 {
+    to {
+        --ratio-decreciente: .8;
+    }
+}
+@keyframes ratio-decrece-09 {
+    to {
+        --ratio-decreciente: .9;
+    }
+}
+@keyframes ratio-decrece-00 {
+    to {
+        --ratio-decreciente: 0;
+    }
+}
+
+@keyframes hacia-fondo-crema {
+    to{
+        background: var(--color-crema);
+    }
+    
+}
+
+.pausado{
+    animation-play-state: paused!important;
+}
+.animado{
+    animation-play-state: running!important;
+}

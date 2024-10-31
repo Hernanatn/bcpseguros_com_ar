@@ -1,0 +1,766 @@
+#inicio{
+    & > div{
+        display: grid;
+    box-sizing: content-box;
+    grid:
+    "banner banner banner" 1fr
+    "banner banner banner" .5fr
+    "servicios confianza confianza" 1fr
+    "servicios historia historia" 1fr
+    "corazon contacto contacto" 1fr
+    "corazon contacto contacto" 1fr
+    / .4fr .286fr .286fr;
+
+    aspect-ratio: 6/11;
+    width: 100%;
+    
+    /*border: solid 0px var(--color-crema);
+    border: solid 0px var(--color-crema);*/
+    
+    /*& #secciones{
+        display: grid;
+        grid-area: secciones;
+        grid:
+        "servicios confianza confianza" 1fr
+        "servicios confianza confianza" .5fr
+        "auto-mini historia historia" 1fr
+        "auto-mini historia historia" 1fr
+        "corazon contacto contacto" 1fr
+        "corazon contacto contacto" 1.5fr
+        / 1fr 1fr 1fr;
+        aspect-ratio: 6/11;
+    }*/
+}
+max-width: 100vw;
+padding: 0px 2.5vw;
+}
+
+
+
+ul > li{
+    padding-inline-start: 1em!important;
+
+    &::before{
+        content: "";
+        position: absolute;
+        height: 35px;
+        width: 35px;
+        border-radius: 35px;
+        margin-left: -3.5vw;
+        margin-top: -1%;
+        border: solid 2px var(--color-crema);
+        opacity: max(var(--distancia), .2);
+    }
+
+}
+
+#servicios{grid-area: servicios; height: 100%; width: 100%; 
+
+    & li {
+        font-size: 1.5em;
+    }
+}
+#confianza{grid-area: confianza; height: 100%; width: 100%; }
+#historia{grid-area: historia; height: 100%; width: 100%; }
+
+#confianza,#historia{
+    & .texto.justificado{
+        font-size: 1.25em;
+        font-weight: lighter;
+    }
+}
+
+#corazon{grid-area: corazon; height: 100%; width: 100%; 
+& .contenido-seccion{
+    display: grid;
+    grid:
+    "corazon" .25fr
+    "texto" .5fr
+    "." .25fr
+    /1fr;
+    ;
+
+    padding-right: 0px;
+    & > #icono-corazon{
+        grid-area: corazon;
+        &.pausado{
+            position: relative;
+            top: 110%;
+            opacity: 0;
+        }
+        &.animado{
+            position: relative;
+            top: 110%;
+            opacity: 0;
+            animation: entrar-abajo var(--animacion-mediana) var(--animacion-larga) ease-in-out forwards;
+        }
+    }
+    & > #texto-corazon{
+        grid-area: texto;
+        background-color: var(--color-rubi);
+        border-radius: 50px 0px 0px 50px;
+        &.pausado{
+            position: relative;
+            left: 110%;
+        }
+        &.animado{
+            position: relative;
+            left: 110%;
+            animation: entrar-derecha var(--animacion-mediana) var(--animacion-mediana) ease-in-out forwards;
+        }
+    }
+}
+}
+#contacto{grid-area: contacto; height: 100%; width: 100%; 
+    & > .contenido-seccion{
+        padding: 0px calc(2.5vw) calc(2.5vw + 2px) 0px ;
+        background-color: var(--color-negro);
+        inset: 2px;
+    }
+    & #formulario-contacto{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        &.pausado{
+            left: 110%;
+        }
+        &.animado{
+            animation: entrar-derecha var(--animacion-mediana) ease-in-out forwards;
+        }
+        &::before,&::after{
+            content: "";
+            position: absolute;
+            height: calc(100%);
+            width: calc(100%);
+            opacity: .75;
+            mix-blend-mode: screen;
+            /*opacity: max(calc(.5 * var(--distancia)), .2);*/            
+        }
+        & > div#campos-formulario{
+            display: grid;
+            grid:
+            "clasico clasico" 1fr
+            "marca modelo" 1fr
+            "ano uso" 1fr
+            "valor das" 2fr
+            "contacto contacto" 1fr
+            "nombre correo" 1fr
+            "telefono ." 1fr
+            ". ." 1fr
+            /1fr 1fr;
+            
+            height: 100%;
+            width: 100%;
+            gap: 1vw;
+
+            & > h4{
+                font-weight: normal;
+                font-style: italic;
+            }
+            & > label,
+            & > div:has(label){
+                & > p{
+                    color: var(--color-rubi);
+                    opacity: .5;
+                }
+            }
+        }
+
+        color: var(--color-negro);
+        & * {
+            color: var(--color-negro);
+        }
+
+        & > div{
+            padding: 1vw 2.5vw;
+        }
+        & > div:has(h1){
+            padding: 2.5vw;
+        }
+        & > div > h1{
+            text-align: center;
+            font-size: 3em;
+        }
+        margin-bottom: calc(2.5vw);
+        /*
+        &::before,&::after{
+            clip-path: polygon(
+                evenodd,
+                0% 0%,
+                0% 100%,
+                calc(0% + 2px) 100%,
+                calc(0% + 2px) 0%,	
+                calc(100% - 2px) 0%,
+                calc(100% - 2px) 100%,
+                100% 100%,
+                100% 0%,
+                0% 0% ,
+                100% 0% ,
+                100% calc(0% + 2px) ,
+                0% calc(0% + 2px) ,	
+                0% calc(100% - 2px) ,
+                100% calc(100% - 2px) ,
+                100% 100% ,
+                0%  100% 
+                );
+        }*/
+
+        &::before {
+                background: var(--color-crema);
+                opacity: 1;
+                height: calc(100% - 2px);
+                border-radius: 50px;
+                
+            }
+            
+            &::after {
+            border-radius: 50px;
+            background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+                    rgba(210, 198, 182, 1),
+                    rgba(210, 198, 182, var(--ratio-creciente)) 40%);
+            z-index: 1;
+    }
+
+    
+}}
+
+#servicios, #corazon{
+    & .contenido-seccion{
+        margin-right: -2px;
+
+    }
+}
+
+#contacto, #corazon{
+    & .contenido-seccion{
+        margin-top: -2px;
+        margin-bottom: -2px;
+    }
+}
+
+#banner-inicio{
+    /*border: solid 0px var(--color-crema);*/
+    & > .contenido-seccion{
+
+        padding: 0vw 5vw;
+        overflow-y: visible;
+    }
+    & > .contenido-seccion *:not(#animacion-banner){
+        position: relative;
+    }
+    & > .contenido-seccion #animacion-banner *{
+        z-index: 1;
+    }
+    & > .contenido-seccion{
+        & #animacion-banner{
+            grid-area: animacion;
+        }
+
+        & > .seccion{
+            & > .contenido-seccion{
+                padding:2.5vw; margin-top:10em; justify-content:end; gap: 5em; 
+            }
+        }
+        & div#claim{
+            grid-area: claim;
+        }
+        & button{
+            grid-area: boton;
+        }
+    }
+
+    & > .contenido-seccion > h1{
+        top: 2.5vw;
+        left: 7.5vw;
+        font-size: 8.5em;
+        max-width: min-content;
+        text-overflow: wrap;
+        text-wrap:pretty;
+    }
+
+
+}
+
+#banner-inicio > .contenido-seccion > #animacion-banner{
+    position: absolute; right: 0; bottom:0; height: 100%;
+    margin-right: -10vw;
+    &::after{
+        z-index: 1;
+        content: "";
+        position: absolute;
+        left: 10%;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(15deg, var(--color-negro) 15%, transparent 75%),
+        linear-gradient(to top, var(--color-negro) 5%, transparent 35%)
+        ;
+    }
+}
+#animacion-auto{
+    width: 112.5%;
+    max-height: 90%;
+    &::after{
+        z-index: 1;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        width: 94%;
+        background: linear-gradient(15deg, var(--color-negro) 15%, transparent 35%),
+        linear-gradient(to top, var(--color-negro) 5%, transparent 35%)
+        ;
+    }
+}
+#asociacion{ grid-area: asociacion; height: 100%; width: 100%; background-color: var(--color-gris-claro); aspect-ratio: 2/1;
+    grid: 
+    "titulo etiqueta" min-content
+    "cuerpo cuerpo" 1fr
+    ". boton" min-content
+    /1fr fit-content(35%);
+
+    h1{grid-area: titulo;}
+    h5{grid-area: etiqueta; justify-self: right;}
+    p{grid-area: cuerpo; text-overflow: ellipsis;}
+    div.ver-mas{grid-area: boton;
+        font-size: .5em;
+        justify-self: right;}
+
+    align-items: center;
+    aspect-ratio: 2/1;
+    row-gap: 1vh;
+}
+#calendario{grid-area: calendario; height: 100%; width: 100%; background-color: var(--color-1-dorado);}
+#promociones{grid-area: promociones; height: 100%; width: 100%; background-color: var(--color-2-dorado);
+aspect-ratio: 2/1;
+flex-direction: row-reverse;
+align-items: end;
+justify-items: right;
+position: relative;
+}
+
+#actividades{grid-area: actividades; height: 100%; width: 100%; background-color: var(--color-1-celeste);}
+#torneo{grid-area: torneo; height: 100%; width: 100%; background-color: var(--color-1-azul);}
+#beneficios{grid-area: beneficios; height: 100%; width: 100%; background-color: var(--color-3-naranja);}
+
+
+
+
+
+
+
+
+
+#beneficios ,
+#actividades ,
+#torneo {
+
+    min-width: 100px;
+    min-height: 100px;
+    & h3{
+        position: absolute;
+        z-index: 1000;
+        left: 0px;
+        bottom: 35px;
+        width: 100%;
+        text-align: center;
+    }
+    & img{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+
+    }
+}
+
+#promociones{
+    position: relative;
+    &::before{
+        background-color: var(--color-1-dorado);
+    }
+    &::after{
+        background-color: var(--color-1-dorado);
+    }
+
+    & img{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 2/1;
+
+    }
+
+    background-color: var(--color-1-dorado) !important;
+}
+#beneficios{
+    &::before{
+        background-color: var(--color-3-naranja);
+    }
+    &::after{
+        background-color: var(--color-3-naranja);
+    }
+
+    background-color: var(--color-3-naranja) !important;
+}
+#actividades{
+    &::before{
+        background-color: var(--color-1-celeste);
+    }
+    &::after{
+        background-color: var(--color-1-celeste);
+    }
+}
+
+@media screen and (max-width:50em){
+
+    label.checkbox{
+        font-size: .5em;
+    }
+    h2{
+        font-size: 1em;
+    }
+    #inicio{
+        & > div{
+            display: grid;
+        box-sizing: content-box;
+        grid:
+        "banner banner banner" 1fr
+        "banner banner banner" .5fr
+        "servicios servicios servicios" 1fr
+        "confianza confianza confianza" 1.25fr
+        "historia historia historia" 1.25fr
+        "contacto contacto contacto" 4fr
+        / 1fr 1fr 1fr;
+        aspect-ratio: 6/17;
+    }
+    }
+    #banner-inicio{
+        height: 100%;
+
+        & > .contenido-seccion  {
+            padding: 0vw 2.5vw;
+        }
+
+        & > .contenido-seccion  > .seccion{
+            width: 50%!important;
+        }
+
+        & > .contenido-seccion > .seccion > .contenido-seccion {
+            margin-top: 3em;
+        }
+        & > .contenido-seccion > .seccion > .contenido-seccion > #claim{
+            display: none;
+        }
+        & > .contenido-seccion > .seccion > .contenido-seccion > button > .contenido-seccion > h3{
+            font-size: .5em;
+        }
+        & > .contenido-seccion > h1{
+            top: 2.5vw;
+            left: 7.5vw;
+            font-size: 2.5em;
+            max-width: min-content;
+            text-overflow: wrap;
+            text-wrap:pretty;
+        }
+    }
+
+    #servicios{grid-area: servicios; height: 100%; width: 100%; 
+
+        & > .contenido-seccion{
+            display: grid;
+            grid: 
+            "auto-j serv" 1fr
+            /.5fr .5fr
+            ;
+            & #auto{
+                position: relative;
+                grid-area: auto-j;
+
+                & #animacion-auto{
+                    width: 100%;
+                    margin-bottom: 1vw;
+                }
+
+            }
+            & > div:not(#auto){
+                justify-self: center;
+            }
+
+            margin-right: 0px;
+        }
+        & ul{
+            gap: 1vw!important;
+        }
+        & li {
+            font-size: .5em;
+        }
+
+        ul > li{
+            padding-inline-start: 1em!important;
+        
+            &::before{
+                height: 5px;
+                width: 5px;
+                border-radius: 50px;
+                margin-left: -1em;
+                margin-top: .1em;
+                border: solid 1px var(--color-crema);
+                opacity: max(calc(.2 * var(--distancia)), .2);
+            }
+            
+        }
+    }
+    #confianza,#historia{
+        & .texto.justificado{
+            font-size: .65em;
+            font-weight: lighter;
+        }
+    }
+
+    #animacion-auto{
+        &::after{
+            margin-bottom: -2.5vw;
+        }
+    }
+
+
+    #contacto >.contenido-seccion > #formulario-contacto > div > h1{
+        font-size: 1.25em;
+    }
+
+    #contacto >.contenido-seccion > #formulario-contacto::before {
+        border-radius: 25px;
+    }
+    #contacto >.contenido-seccion > #formulario-contacto > button {
+        border-radius:25px 0px 25px 0px!important;
+        & > h1{
+            font-size: 1.5em!important;
+        }
+    }
+
+
+
+    #corazon{
+        display: none;
+        height: 0%;
+        width: 0%;
+    }
+
+}
+
+
+@media screen and (min-width:50em) {
+    #inicio{
+        padding: 0vw 7.5vw 0vw 10vw;
+        & > div {aspect-ratio: 6/11;}
+    }
+    
+    @media screen and (max-width: 70em) {
+        #confianza,#historia{
+            & .texto.justificado{
+                font-size: 1em;
+            }
+        }
+
+        #texto-corazon h2{
+            font-size: 2em;
+        }
+        & li {
+            font-size: .75em;
+        }
+        
+    }
+
+    @media screen and (max-width:90em){
+
+
+        #banner-inicio{
+            height: 100%;
+    
+            & > .contenido-seccion  {
+                padding: 0vw 2.5vw;
+            }
+    
+            & > .contenido-seccion  > .seccion{
+                width: 50%!important;
+            }
+    
+            & > .contenido-seccion > .seccion > .contenido-seccion {
+                margin-top: 3em;
+            }
+            & > .contenido-seccion > .seccion > .contenido-seccion > #claim{
+                display: none;
+            }
+            & > .contenido-seccion > .seccion > .contenido-seccion > button > .contenido-seccion > h3{
+                font-size: .75em;
+            }
+            & > .contenido-seccion > h1{
+                top: 2.5vw;
+                left: 5vw;
+                font-size: 3.5em;
+            }
+        }
+    
+        #servicios{grid-area: servicios; height: 100%; width: 100%; 
+    
+            flex-direction: row-reverse;
+            & li {
+                font-size: 1em;
+            }
+    
+            ul > li{
+                padding-inline-start: 1em!important;
+            
+                &::before{
+                    height: 10px;
+                    width: 10px;
+                    border-radius: 50px;
+                    margin-left: -1.5em;
+                }
+                
+            }
+        }
+
+    #corazon .contenido-seccion > #icono-corazon {
+        height: 100%!important;
+    }
+    #corazon .contenido-seccion > #icono-corazon > span{
+        font-size: 35px!important;
+    }
+    #contacto >.contenido-seccion > #formulario-contacto > div > h1{
+        font-size: 1.5em;
+    }
+
+    #contacto >.contenido-seccion > #formulario-contacto::before {
+        border-radius: 25px;
+    }
+    #contacto >.contenido-seccion > #formulario-contacto > button {
+        border-radius:25px 0px 25px 0px!important;
+        height: 10%!important;
+        & > h1{
+            font-size: 1.5em!important;
+        }
+    }
+    #contacto #formulario-contacto > div#campos-formulario{
+        grid:
+        "clasico clasico" min-content
+        "marca modelo" 1fr
+        "ano uso" 1fr
+        "valor das" 2fr
+        "contacto contacto" min-content
+        "nombre correo" 1fr
+        "telefono ." 1fr
+        ". ." 1fr
+        /1fr 1fr;
+    }
+    #contacto #formulario-contacto > div#campos-formulario > h4{
+        font-size: .75em;
+    }
+    #contacto #formulario-contacto > div#campos-formulario > label{
+        & > p{
+            font-size: .55em;
+        }
+        & > input::placeholder{
+            font-size: .55em;
+        }
+    }
+}
+    
+}
+@media screen and (min-width:70em) {
+    #inicio{
+        padding: 0vw 10vw 0vw 12.5vw;
+        & > div {aspect-ratio: 6/11;}
+    }
+
+    #servicios h4, #servicios i{
+        font-size: 2em;
+    }
+
+    @media screen and (max-width:90em){
+
+
+        #banner-inicio{
+            height: 100%;
+    
+            & > .contenido-seccion  {
+                padding: 0vw 2.5vw;
+            }
+    
+            & > .contenido-seccion  > .seccion{
+                width: 50%!important;
+            }
+    
+            & > .contenido-seccion > .seccion > .contenido-seccion {
+                margin-top: 10.5em;
+                gap: 2.5vw;
+            }
+            & > .contenido-seccion > .seccion > .contenido-seccion > #claim{
+                display: auto;
+            }
+            & > .contenido-seccion > .seccion > .contenido-seccion > button > .contenido-seccion > h3{
+                font-size: 1.5em;
+            }
+            & > .contenido-seccion > h1{
+                top: 2.5vw;
+                left: 5vw;
+                font-size: 5.5em;
+            }
+        }
+    
+        #servicios{grid-area: servicios; height: 100%; width: 100%; 
+    
+            flex-direction: row-reverse;
+            & li {
+                font-size: 1.25em;
+            }
+    
+            ul > li{
+                padding-inline-start: 1em!important;
+            
+                &::before{
+                    height: 15px;
+                    width: 15px;
+                    border-radius: 50px;
+                    margin-left: -1.5em;
+                }
+                
+            }
+        }
+
+        #contacto #formulario-contacto > div#campos-formulario > h4{
+            font-size: .75em;
+        }
+        #contacto #formulario-contacto > div#campos-formulario > label{
+            & > p{
+                font-size: .75em;
+            }
+            & > input::placeholder{
+                font-size: .75em;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width:80em) and (max-width:100em) {
+    #contacto #formulario-contacto > div#campos-formulario{
+        grid:
+        "clasico clasico" min-content
+        "marca modelo" 1fr
+        "ano uso" 1fr
+        "valor das" 2fr
+        "contacto contacto" min-content
+        "nombre correo" 1fr
+        "telefono ." 1fr
+        ". ." 1fr
+        /1fr 1fr;
+    }
+    
+}

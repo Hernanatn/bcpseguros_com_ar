@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head hx-head="merge">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Seguros Clásicos. Protegemos tu Pasión."/>  
+        <meta name="og:description" content="Seguros Clásicos. Protegemos tu Pasión."/>
+
+        <title>{% block titulo %}Seguros Clásicos{% endblock titulo %}</title>
+        {% block css %}
+        <link rel="preload"  hx-preserve="true" onload="this.rel='stylesheet'" type="text/css" href="static/min-css/base.css" as="style" />
+        <link hx-preserve="true" rel="stylesheet" type="text/css" href="static/min-css/base.css" />
+        <link rel="preload"  hx-preserve="true" onload="this.rel='stylesheet" type="text/css" href="static/min-css/animaciones.css" as="style" />
+        <link hx-preserve="true" rel="stylesheet" type="text/css" href="static/min-css/animaciones.css" />
+        <link rel="preload"  hx-preserve="true" onload="this.rel='stylesheet" type="text/css" href="static/min-css/estilos.css" as="style" />
+        <link hx-preserve="true" rel="stylesheet" type="text/css" href="static/min-css/estilos.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz@1,6..96&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        {% endblock css %}
+
+        {% block js %}
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.6"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org/dist/ext/preload.js"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.12/dist/ext/head-support.js"></script>
+        <script hx-preserve="true" src="https://unpkg.com/htmx.org@1.9.12/dist/ext/morphdom-swap.js"></script>
+        <script hx-preserve="true" src="https://kit.fontawesome.com/271b67c157.js" crossorigin="anonymous"></script>
+
+        <script src="static/js/utiles.js"></script>
+        {% endblock js %}
+    </head>
+    <body id="body" hx-ext="morphdom-swap,preload,head-support" hx-indicator="#indicador-cargando-mensaje">
+        <div id="contenedor-principal" class="contenedor grilla">
+            <header  class="seccion">
+            <div class="flex horizontal contenido-seccion">
+                <img loading="lazy"src="static/img/logos/logo_seguros_clasicos.webp" style=""
+                hx-get="/"
+                hx-target="body"
+                hx-swap="outerHTML morphdom"
+                hx-push-url="/"
+                />
+                <div id="pestanas" class="flex horizontal pestanas" style="margin-right:-3.5px">
+                    <button class="pestana seccion" id="pestana_servicios" hx-on:click="
+                    htmx.find('#servicios').scrollIntoView({behavior:'smooth', block:'start'});
+                    htmx.findAll('.pestana').forEach((p) => {htmx.removeClass(p, 'seleccionada')});
+                    htmx.addClass(this,'seleccionada');
+                    "    
+                    > 
+                        <h4>Servicios</h4>
+                    </button>
+                    <button class="pestana seccion" id="pestana_nosotros" hx-on:click="
+                    htmx.find('#historia').scrollIntoView({behavior:'smooth', block:'start'});
+                    htmx.findAll('.pestana').forEach((p) => {htmx.removeClass(p, 'seleccionada')});
+                    htmx.addClass(this,'seleccionada');
+                    "  
+                    > 
+                        <h4>Nosotros</h4>
+                    </button>
+                    <button class="pestana seccion" id="pestana_contacto" hx-on:click="
+                    htmx.find('#contacto').scrollIntoView({behavior:'smooth', block:'start'});
+                    htmx.findAll('.pestana').forEach((p) => {htmx.removeClass(p, 'seleccionada')});
+                    htmx.addClass(this,'seleccionada');
+                    "  
+                    > 
+                        <h4>Contacto</h4>
+                    </button>
+                </div>
+                <!--
+                <a href="https://inscripciones.exalumnoscnba.com.ar/" target="_blank">
+                <button 
+                class="boton" style="justify-self: right; margin-top:1vh;">
+                        <h1 style="font-size: xx-large;">Asociate</h1>
+                </button>
+                </a>
+                -->
+            </div>
+            </header>
+            <div class="grilla" id="contenido">
+            {% block contenido%}
+            {% endblock contenido%}
+            </div>
+            <footer class="grilla seccion" >
+                <div class="grilla contenido-seccion">
+                <div class="flex vertical" id="info-footer">
+                    <img loading="lazy"src="static/img/logos/logo_seguros_clasicos.webp"; style="max-width: 12.5vw;"/>
+                    <h3>info@segurosclasicos.com</h3>
+                    <h3>3973-0550</h3>
+                    <br>
+                    <div id="redes-sociales">
+                        <h3>Redes Sociales</h3>
+                    </div>
+                </div>
+                <div class="seccion-pie-pagina flex horizontal" style="align-items: end;">
+                    <b>Seguros Clásicos</b><i>. Sitio Desarrollado por Ch'aska S.R.L. (c) 2024. Todos los derechos reservados. 
+                    </i>
+                </div>
+                <div class="seccion-pie-pagina"     id="hecho-por-chaska">
+                    <a href="https://cajadeideas.ar"><img loading="lazy"src="static/img/logos/hecho_por_chaska.svg"/></a>
+                </div>
+                </div>
+            </footer>
+        </div>
+        <div class="flotante indicador-hx flex horizontal" id="indicador-cargando-mensaje" style="padding: 2vh 1vw;" class="indicador-hx">
+            <img src="static/img/iconos/sc.gif)"/>
+            <h3>Cargando</h3>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,329 @@
+{% extends "/base.html.j2" %}
+        {% block css %}
+        {{ super() }}
+        <link rel="preload" onload="this.rel='stylesheet'" type="text/css" href="static/min-css/inicio.css" as="style" />
+        <link rel="stylesheet" type="text/css" href="static/min-css/inicio.css" />
+        {% endblock css %}
+
+        {% block js %}
+        {{ super() }}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+        {% endblock js %}
+
+        {% block contenido%}
+        <div class="grilla secciones" id="inicio">
+            <div>
+                <div class="banner flex vertical seccion" id="banner-inicio">
+                <div class="contenido-seccion" style="inset: 0px; width:calc(100% - 4px); margin-left:2px;">
+                    <div id="animacion-banner"></div>
+                    <h1 style="position: absolute;">Protegemos tu Pasión.</h1>
+                    <div class="flex vertical seccion"
+                        style="height: 100%; width:40%"
+                    >
+                        <div class="contenido-seccion flex vertical" style="">
+
+                            <div class="texto justificado" id="claim">
+                                Somos un broker de seguros especialista en autosclásicos desde hace ya diez años. Priorizamos el
+                                asesoramiento, el trato directo y la diversidad de medios de contacto para simplificarle las necesidades a
+                                nuestros clientes
+                            </div>
+                            <button class="seccion"
+                            hx-on:click="htmx.find('#contacto').scrollIntoView({behavior:'smooth', block:'start'});"
+                            >
+                                <div class="contenido-seccion">
+                                    <h3>
+                                        Descubrí tu próximo seguro
+                                    </h3>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    var animacionBanner = bodymovin.loadAnimation({
+                    container: document.getElementById('animacion-banner'),
+                    renderer: 'canvas',
+                    loop: false,
+                    autoplay: true,
+                    path: "static/animaciones/banner.json",
+                    rendererSettings: {
+                        preserveAspectRatio: 'xMidYMid meet'
+                    }    
+                    }
+                )
+
+                </script>
+                </div>
+                <div class="seccion" id="servicios" style="z-index: 11; overflow: visible;">
+                    <div class="contenido-seccion" style="overflow: visible;">
+                        <div>
+                            <h4><i>Servicios</i></h4>
+                            <ul class="flex vertical" style="gap:2.5vw;padding-left: 2.5vw; margin-top:2.5vw">
+                            <li>Cobertura</li>
+                            <li>Asesoramiento Jurídico</li>
+                            <li>Gestión de Siniestros</li>
+                            <li>Asistencia Mecánica</li>
+                            <li>Cobranza Simple</li>
+                            </ul>
+                        </div>                    
+                        <div class="" id="auto">
+                            <div id="animacion-auto" style="width:112.5%; max-height:90%; position:absolute; bottom:0;left:0"></div>
+                        <script>
+                            var animacionBanner = bodymovin.loadAnimation({
+                            container: document.getElementById('animacion-auto'),
+                            renderer: 'canvas',
+                            loop: false,
+                            autoplay: false,
+                            path: "static/animaciones/justicialista.json",
+                            rendererSettings: {
+                                preserveAspectRatio: 'xMidYMid meet'
+                            }    
+                            }
+                        )
+                        var observadorJusticialista;
+                        if (typeof observadorJusticialista == 'undefined'){
+                            observadorJusticialista = new IntersectionObserver((es,observador) => {
+                                es.forEach(e => {
+                                    if (e.isIntersecting){
+                                        animacionBanner.play();
+                                        htmx.find(htmx.find('header'),'.contenido-seccion').style.backgroundColor = 'transparent!important';
+                                    }
+                                });
+                            },
+                            
+                            {
+                                threshold: 1.0
+                            }
+                            );
+                        }
+
+                    observadorJusticialista.observe(htmx.find('#auto'));
+
+                        </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="confianza">
+                    <div class="contenido-seccion">
+                        
+                        <h2>Décadas de confianza</h2>
+                        
+                    <hr class="seccion horizontal" style="position: absolute; left:0; width:100%; margin-top:1.5vw;" />
+                        
+                        <div class="texto justificado" style="margin-top: 4vw;" id="">
+                        Nuestro equipo, compuesto por profesionales altamente capacitados, tiene un profundo conocimiento del mercado de seguros y del valor de los autos clásicos. Sabemos que estos vehículos no son simples medios de transporte, sino verdaderas joyas que merecen una protección a la altura de su singularidad.
+ <br> <br>
+Conocemos el cuidado y atención que nuestros asegurados le brindan a sus vehículos. Por eso pensamos en una cobertura que no solo 
+ampare la Responsabilidad Civil obligatoria para circular, sino también el ROBO, INCENDIO y DAÑO TOTAL POR ACCIDENTE para los 
+vehículos, además de asistencia mecánica.
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="historia">
+                    <div class="contenido-seccion">
+                                            
+                        <h2>Nuestra historia</h2>
+                        
+                    <hr class="seccion horizontal" style="position: absolute; left:0; width:100%; margin-top:1.5vw;" />
+                        
+                        <div class="texto justificado" style="margin-top: 4vw;" id="">
+                        En Seguros Clásicos, nos enorgullecemos de ser más que un broker de seguros. Somos apasionados por los autos clásicos, como nuestros clientes, y compartimos ese amor por cada detalle que hace a un vehículo único. Desde hace más de diez años, ofrecemos un servicio premium, diseñado especialmente para proteger estos tesoros sobre ruedas. Nos especializamos en brindar soluciones personalizadas y en el trato humano, porque entendemos que asegurar un auto clásico no es solo cumplir con requisitos legales, sino cuidar una pieza de historia que lleva consigo un legado.
+                        </div>
+                    </div>
+                </div>
+                <div class="seccion" id="corazon">
+                    <div class="contenido-seccion" style="position: relative; overflow: visible;">
+                        <div id="icono-corazon" class="flex vertical pausado" style="width: 25%; height: 75%;justify-self:center;align-self:end; border-radius: 75px 75px 0px 0px; border: solid 2px var(--color-crema-apagada); border-bottom: solid 0px transparent; justify-content: space-around; align-items:center" >
+                        <span class="material-symbols-outlined" style="font-size: 75px; font-variation-settings: 'FILL' 1; opacity:.9;">favorite</span>
+                        </div>
+                        <div id="texto-corazon" class="flex vertical pausado" style="padding:2.5vw; gap: 2.5vw">
+                        <h2>No es tan sólo<br>un auto...</h2>
+                        <div class="texto justificado" >
+                        Por que compartimos las misma 
+                        pasión por los clásicos, sabemos que no 
+                        se trata tan solo de un bien material.
+                        <br>
+                        <br>
+                        Cada es una pieza viva de historia. Hace 
+                        más de una década ofrecemos un 
+                        servicio de altísima calidad anclado en 
+                        la protección y seguro de Clásicos, 
+                        poniendo el eje en el trato humano. 
+                        Contamos con un equipo de expertos, 
+                        de vasta experiencia en el mercado de 
+                        seguros y con conocimiento y pasión
+                        </div>
+                        </div>
+                        <script>
+                        var observadorCorazon;
+                        if (typeof observadorCorazon == 'undefined'){
+                            observadorCorazon = new IntersectionObserver((es,observador) => {
+                                es.forEach(e => {
+                                    if (e.isIntersecting){
+                                        const texto = htmx.find(e.target,'#texto-corazon');
+                                        const icono = htmx.find(e.target,'#icono-corazon');
+                                        htmx.removeClass(texto,'pausado');
+                                        htmx.addClass(texto,'animado');
+                                        htmx.removeClass(icono,'pausado');
+                                        htmx.addClass(icono,'animado');
+                                        
+                                    }
+                                });
+                            },
+                            
+                            {
+                                threshold: .5
+                            }
+                            );
+                        }
+                            observadorCorazon.observe(htmx.find('#corazon'));
+
+
+                        </script>
+                        <hr class="seccion vertical" style="position: absolute; bottom: 0px; left: 2.5vw; margin-left: -2px; width: 2px; height: 100%; transform-origin: left bottom; padding:0px;" />
+                        <hr class="seccion horizontal" style="position: absolute; left:0; width:100%; bottom:calc(2.5vw + 4px);" />
+
+                    </div>
+                </div>
+                <div class="seccion" id="contacto">
+                    <div class="contenido-seccion">
+                    <svg style="visibility: hidden; position: absolute;" width="0" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                            <filter id="redondo"><feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" />    
+                                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="redondo" />
+                                <feComposite in="SourceGraphic" in2="redondo" operator="atop"/>
+                            </filter>
+                        </defs>
+                    </svg>
+                    <form id="formulario-contacto" class="flex vertical pausado" style="position: relative; overflow: visible; height:100%; width:100%; backgound-color: var(--color-crema)"
+                    hx-post="/contacto"
+                    hx-target="#campos-formulario"
+                    hx-swap="outerHTML"
+                    >
+                        <div>
+                        <h1 style="font-weight:700;">Cotizá <i>hoy</i> mismo<br>
+                            tu Auto Clásico </h1>
+                        </div>
+                    <hr class="seccion horizontal rubi" style="position: relative; left:0; width:100%" />
+                    <div class="flex horizontal" style="gap: .5vw; justify-content:space-around; font-size: 1.25em"><div><b><i>Formulario</i></b></div><div><b><i>WhatsApp</i></b></div></div>
+                    <hr class="seccion horizontal rubi" style="position: relative; left:0; width:100%;" />
+                        <div id="campos-formulario">
+
+                        <h4 style="grid-area: clasico;">Sobre el Clásico</h4>
+                        <label>
+                            <input name="contacto-marca" id="contacto-marca" class="caja input" type="text" placeholder="Marca" required/>
+                            <p>Marca</p>
+                        </label>
+                        <label>
+                            <input name="contacto-modelo" id="contacto-modelo" class="caja input" type="text" placeholder="Modelo" required/>
+                            <p>Modelo</p>
+                        </label>
+                        <label>
+                            <input name="contacto-ano" id="contacto-ano" class="caja input" type="number" placeholder="Año" required/>
+                            <p>Año</p>
+                        </label>
+                        <div>
+                            <div id="contacto-uso" class="flex horizontal opciones">
+                                <label class="checkbox">
+                                    Principal <input type="checkbox" name="contacto-uso-principal" id="contacto-uso-principal" value="principal" hx-on:click="const seleccionada = this.checked; htmx.findAll(htmx.find('#contacto-uso'),'label>input').forEach(c => {c.checked = false}); this.checked = seleccionada;" checked/>
+                                </label>
+                                <label class="checkbox">
+                                    Ocasional <input type="checkbox" name="contacto-uso-ocasional" id="contacto-uso-ocasional" value="ocasional" hx-on:click="const seleccionada = this.checked; htmx.findAll(htmx.find('#contacto-uso'),'label>input').forEach(c => {c.checked = false}); this.checked = seleccionada;"/>
+                                </label>
+                                <label class="checkbox">
+                                    Colección <input type="checkbox" name="contacto-uso-coleccion" id="contacto-uso-coleccion" value="coleccion" hx-on:click="const seleccionada = this.checked; htmx.findAll(htmx.find('#contacto-uso'),'label>input').forEach(c => {c.checked = false}); this.checked = seleccionada;"/>
+                                </label>
+                            </div>
+                            <p>Uso</p>
+                        </div>
+                        <label>
+                            <input name="contacto-valor" id="contacto-valor" class="caja input grande" placeholder="¿Cuanto pensás que vale tu clásico?"/>
+                            <p>¿Cuanto pensás que vale tu clásico?</p>
+                        </label>
+                        <label>
+                            <input name="contacto-das" id="contacto-das" class="caja input grande" placeholder="¿Qué uso le das a tu clásico?"/>
+                            <p>¿Qué uso le das a tu clásico?</p>
+                        </label>
+                        <h4 style="grid-area: contacto;">Contacto</h4>
+                        <label>
+                            <input name="contacto-nombre" id="contacto-nombre" class="caja input" type="text" placeholder="Nombre" required/>
+                            <p>Nombre</p>
+                        </label>
+                        <label>
+                            <input name="contacto-correo" id="contacto-correo" class="caja input" type="email" placeholder="Correo" required/>
+                            <p>Correo</p>
+                        </label>
+                        <label>
+                            <input name="contacto-telefono" id="contacto-telefono" class="caja input" type="number" placeholder="Teléfono" required/>
+                            <p>Teléfono</p>
+                        </label>
+                        </div>
+                    <button style="position: absolute; bottom:0px; right:0px; height:15%;width:45%; border-radius:50px 0px 50px 0px; background-color: var(--color-rubi);"
+                    type="submit"
+                    hx-validate="true"
+                    >
+                        <h1 style="font-weight:400; font-size:3em"><i style="color:var(--color-crema)">Cotizá</i></h1>
+                    </button>
+                    <hr class="seccion vertical" style="position: absolute; bottom: 0px; right: 0px; margin-right: -2px; width: 2px; height: 100%; transform-origin: left bottom; padding:0px;" />
+                    </form>
+                    <script>
+                    var observadorFormulario;
+                    if (typeof observadorFormulario == 'undefined'){
+                        observadorFormulario = new IntersectionObserver((es,observador) => {
+                            es.forEach(e => {
+                                if (e.isIntersecting){
+                                    const formulario = htmx.find(e.target,'form');
+                                    htmx.removeClass(formulario,'pausado');
+                                    htmx.addClass(formulario,'animado');
+                                    htmx.find(htmx.find('header'),'.contenido-seccion').style.backgroundColor = 'var(--color-negro-80)!important';
+                                }
+                            });
+                        },
+                        
+                        {
+                            threshold: .35
+                        }
+                        );
+                    }
+
+                    observadorFormulario.observe(htmx.find('#contacto'));
+
+                    </script>
+                    <hr class="seccion horizontal" style="position: absolute; left:0; width:100%; bottom:2.5vw;" />
+
+                    </div>
+                </div>
+                <!--
+                <div id="secciones"> 
+                </div>
+                -->
+            </div>
+        </div>
+        <script>
+        document.getElementById("body").onmousemove = e => {
+  for(const seccion of document.getElementsByClassName("seccion")) {
+    const rect = seccion.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+
+    seccion.style.setProperty("--mouse-x", `${x}px`);
+    seccion.style.setProperty("--mouse-y", `${y}px`);
+  };
+  for(const seccion of htmx.findAll("li")) {
+    const rect = seccion.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+
+    seccion.style.setProperty("--distancia", `${(1 - sigmoid(Math.hypot(x,y))) * 2}`);
+  };
+  for(const seccion of htmx.findAll("form")) {
+    const rect = seccion.getBoundingClientRect(),
+          x = e.clientX - rect.left,
+          y = e.clientY - rect.top;
+    seccion.style.setProperty("--distancia", `${(1 - sigmoid(Math.hypot(x,y))) * 2}`);
+    seccion.style.setProperty("--mouse-x", `${x}px`);
+    seccion.style.setProperty("--mouse-y", `${y}px`);
+  };
+}
+        </script>
+        {% endblock contenido%}

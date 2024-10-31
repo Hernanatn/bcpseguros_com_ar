@@ -1,0 +1,34 @@
+#PassengerDefaultUser "root"
+#PassengerPython /usr/local/bin/python3.3
+#SetEnv SEGUROSCLASICOS_COM_AR_AMBIENTE='PRODUCCION'
+
+
+#<VirtualHost *:80>
+#
+#    ServerName nuevo.segurosclasicos.com
+#    
+##    WSGIDaemonProcess segurosclasicos_com_ar processes=32 threads=32
+##    
+##    WSGIProcessGroup segurosclasicos_com_ar
+##    WSGIApplicationGroup %{GLOBAL}
+##    WSGIScriptAlias / /htdocs/produccion.wsgi
+#    
+#    <Directory "/htdocs/segurosclasicos_com_ar/">
+#        Require all granted
+#    </Directory>
+#    
+#    <Directory /htdocs/segurosclasicos_com_ar/estatico>
+#      Order allow,deny
+#      Allow from all
+#      Require all granted
+#    </Directory>
+#    <Directory "/nuevo.segurosclasicos.com/public/segurosclasicos_com_ar/">
+#        Require all granted
+#    </Directory>
+#    
+#    <Directory /nuevo.segurosclasicos.com/public/segurosclasicos_com_ar/estatico>
+#      Order allow,deny
+#      Allow from all
+#      Require all granted
+#    </Directory>
+#</VirtualHost>
